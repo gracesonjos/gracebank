@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Banking System - View Customers</title>
+    <style>
+        body {
+          background-color: #f2f2f2;
+          font-family: Arial, sans-serif;
+        }
+        h1 {
+          text-align: center;
+          margin-top: 50px;
+        }
+        table {
+          margin: auto;
+          border-collapse: collapse;
+          width: 80%;
+        }
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+        th {
+          background-color: #4CAF50;
+          color: white;
+        }
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        tr:hover {
+          background-color: #ddd;
+        }
+        .button {
+          display: inline-block;
+          border-radius: 4px;
+          background-color: #4CAF50;
+          color: #fff;
+          text-align: center;
+          font-size: 16px;
+          padding: 10px;
+          width: 100px;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 5px;
+        }
+        .button:hover {
+          background-color: #3e8e41;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>View All Customers</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Current Balance</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through all customers and display their details -->
+        {% for customer in customers %}
+        <tr>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.current_balance }}</td>
+          <td>
+            <a href="/view_customer/{{ customer.id }}">View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Banking System - View Customer</title>
+    <style>
+        body {
+          background-color: #f2f2f2;
+          font-family: Arial, sans-serif;
+        }
+        h1 {
+          text-align: center;
+          margin-top: 50px;
+        }
+        .container {
+          margin: auto;
+          width: 60%;
+          border: 1px solid #ccc;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 4px;
+        }
+        table {
+          margin: auto;
+          border-collapse: collapse;
+          width: 80%;
+          margin-bottom: 20px;
+        }
+        th, td {
+          text-align: left;
+          padding: 8px;
+        }
+        th {
+          background-color: #4CAF50;
+          color: white;
+        }
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        tr:hover {
+          background-color: #ddd;
+        }
+        .button {
+          display: inline-block;
+          border-radius: 4px;
+          background-color: #4CAF50;
+          color: #fff;
+          text-align: center;
+          font-size: 16px;
+          padding: 10px;
+          width: 100px;
+          transition: all 0.5s;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .button:hover {
+      background-color: #3e8e41;
+    }
+    .back-button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #f44336;
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      padding: 10px;
+      width: 100px;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+    .back-button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+  </head>
+  <body>
+    <h1>View Customer</h1>
+    <table>
+      <tr>
+        <td>Name:</td>
+        <td>{{ customer.name }}</td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>{{ customer.email }}</td>
+      </tr>
+      <tr>
+        <td>Current Balance:</td>
+        <td>{{ customer.current_balance }}</td>
+      </tr>
+    </table>
+    <br>
+    <a href="/tranfer/{{ customer.id }}">Transfer Money</a>
+    <br>
+    <a href="/view_customers/">View All Customers</a>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Banking System - Transfer Money</title>
+  </head>
+  <body>
+    <h1>Transfer Money</h1>
+    <form action="/transfer_money/" method="post">
+      {% csrf_token %}
+      <label for="sender">Sender:</label>
+      <select name="sender" id="sender">
+        {% for customer in customers %}
+        <option value="{{ customer.id }}">{{ customer.name }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <br><br>
+      <label for="receiver">Receiver:</label>
+      <select name="receiver" id="receiver">
+        {% for customer in customers %}
+        <option value="{{ customer.id }}">{{ customer.name }}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" id="amount" step="0.01" required>
+      <br><br>
+      <input type="submit" value="Transfer">
+    </form>
+    <br>
+    <a href="/view_customers/">View All Customers</a>
+  </body>
+</html>
